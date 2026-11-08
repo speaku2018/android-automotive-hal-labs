@@ -1,0 +1,28 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_binary {
+    name: "android.hardware.helloworld-service.example",
+    relative_install_path: "hw",
+    vendor: true,
+    init_rc: ["android.hardware.helloworld-service.example.rc"],
+    vintf_fragments: ["android.hardware.helloworld-service.example.xml"],
+    srcs: ["HelloWorld.cpp", "service.cpp"],
+    shared_libs: [
+        "android.hardware.helloworld-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "liblog",
+    ],
+}
+
+cc_binary {
+    name: "helloworld_client",
+    vendor: true,
+    srcs: ["client.cpp"],
+    shared_libs: [
+        "android.hardware.helloworld-V1-ndk",
+        "libbinder_ndk",
+    ],
+}

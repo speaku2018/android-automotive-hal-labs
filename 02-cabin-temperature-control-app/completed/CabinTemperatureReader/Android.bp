@@ -1,0 +1,9 @@
+android_app {
+    name: "CabinTemperatureReader",
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+    manifest: "AndroidManifest.xml",
+    libs: ["android.car"],
+    platform_apis: true,
+    certificate: "platform",
+}

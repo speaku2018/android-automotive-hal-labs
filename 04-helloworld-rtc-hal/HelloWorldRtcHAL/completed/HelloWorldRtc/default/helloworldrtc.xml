@@ -1,0 +1,7 @@
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>vendor.course.hardware.helloworldrtc</name>
+        <version>1</version>
+        <fqname>IHelloWorldRtc/default</fqname>
+    </hal>
+</manifest>

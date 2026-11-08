@@ -1,0 +1,6 @@
+# Course: newly implemented standalone HelloWorld HAL
+PRODUCT_PACKAGES += \
+    android.hardware.helloworld-service.example \
+    helloworld_client
+
+BOARD_SEPOLICY_DIRS += hardware/interfaces/helloworld/aidl/default/sepolicy

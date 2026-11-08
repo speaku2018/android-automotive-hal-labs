@@ -1,0 +1,4 @@
+service vendor.helloworld-default /vendor/bin/hw/android.hardware.helloworld-service.example
+    class hal
+    user system
+    group system

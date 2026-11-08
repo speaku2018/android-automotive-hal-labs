@@ -1,0 +1,8 @@
+    <hal format="aidl" optional="true">
+        <name>android.hardware.helloworld</name>
+        <version>1</version>
+        <interface>
+            <name>IHelloWorld</name>
+            <instance>default</instance>
+        </interface>
+    </hal>

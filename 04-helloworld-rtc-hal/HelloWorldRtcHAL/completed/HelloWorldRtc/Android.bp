@@ -1,0 +1,29 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+aidl_interface {
+    name: "vendor.course.hardware.helloworldrtc",
+    vendor_available: true,
+    srcs: ["vendor/course/hardware/helloworldrtc/*.aidl"],
+    stability: "vintf",
+    backend: {
+        ndk: {
+            enabled: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+    },
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
+}

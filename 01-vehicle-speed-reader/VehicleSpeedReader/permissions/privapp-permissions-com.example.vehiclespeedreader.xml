@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <privapp-permissions package="com.example.vehiclespeedreader">
+        <permission name="android.car.permission.CAR_SPEED" />
+    </privapp-permissions>
+</permissions>

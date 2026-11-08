@@ -1,0 +1,29 @@
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+cc_defaults {
+    name: "helloworld_rtc_native_defaults",
+    vendor: true,
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+    shared_libs: ["libbase", "liblog"],
+}
+cc_binary {
+    name: "vendor.course.hardware.helloworldrtc-service",
+    defaults: ["helloworld_rtc_native_defaults"],
+    relative_install_path: "hw",
+    srcs: ["HelloWorldRtc.cpp", "RtcDevice.cpp", "service.cpp"],
+    shared_libs: ["vendor.course.hardware.helloworldrtc-V1-ndk", "libbinder_ndk"],
+    init_rc: ["helloworldrtc.rc"],
+    vintf_fragments: ["helloworldrtc.xml"],
+}
+cc_binary {
+    name: "helloworld_rtc_client",
+    defaults: ["helloworld_rtc_native_defaults"],
+    srcs: ["client.cpp"],
+    shared_libs: ["vendor.course.hardware.helloworldrtc-V1-ndk", "libbinder_ndk"],
+}
+cc_binary {
+    name: "rtc_driver_probe",
+    defaults: ["helloworld_rtc_native_defaults"],
+    srcs: ["driver_probe.cpp", "RtcDevice.cpp"],
+}

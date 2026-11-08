@@ -1,0 +1,19 @@
+type helloworld_rtc_client, domain;
+type helloworld_rtc_client_exec, exec_type, vendor_file_type, file_type;
+type rtc_driver_probe_exec, exec_type, vendor_file_type, file_type;
+
+hal_client_domain(helloworld_rtc_client, hal_helloworldrtc)
+binder_use(helloworld_rtc_client)
+
+# Preserve the calling terminal's inherited descriptors after transition.
+allow helloworld_rtc_client shell:fd use;
+allow helloworld_rtc_client adbd:fd use;
+allow helloworld_rtc_client adbd:process sigchld;
+allow helloworld_rtc_client adbd:unix_stream_socket { getattr ioctl read write };
+allow helloworld_rtc_client devpts:chr_file rw_file_perms;
+
+userdebug_or_eng(`
+    domain_auto_trans(shell, helloworld_rtc_client_exec, helloworld_rtc_client)
+    allow shell helloworld_rtc_client_exec:file rx_file_perms;
+    allow shell rtc_driver_probe_exec:file { rx_file_perms execute_no_trans };
+')
